@@ -31,17 +31,6 @@ export async function middleware(request) {
   return NextResponse.next();
 }
 
-// export const config = { matcher: "/" };
-// export const config = {
-//   matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
-//   runtime: "experimental-edge",
-// };
-// export const config = {
-//   matcher: [
-//     "/((?!api|_next/static|_next/image|robots.txt|public|images|manifest.json|sw.js|favicon.ico|workbox-*).*)",
-//     "/",
-//   ],
-// };
 export const config = {
   matcher: ["/((?!_next|api/auth).*)(.+)"],
 };

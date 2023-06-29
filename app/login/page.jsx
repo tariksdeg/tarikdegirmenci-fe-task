@@ -5,6 +5,7 @@ const Login = () => {
   const onSubmit = () => {
     cookie.set("login", "login");
   };
+
   return (
     <div className="bg-gradient-to-r from-[#FEAF00] to-[#F8D442] w-full min-h-screen">
       <div className=" flex flex-col justify-between  container rounded-lg bg-white my-44 w-1/4  py-7 px-5">
