@@ -5,7 +5,7 @@ import NavList from "./NavBar/NavList";
 import Cookies from "js-cookie";
 const Navbar = () => {
   return (
-    <div className="fixed w-[14%]">
+    <div className="fixed w-[20%]">
       <div className="flex right-0 top-0 left-0 flex-col items-center bg-[#F2EAE1] min-h-screen pt-5">
         <div>
           <div className="text-xl font-bold border-l-[4px] border-[#F8D442] px-2 ">
