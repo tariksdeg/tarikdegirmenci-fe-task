@@ -41,7 +41,7 @@ const Login = () => {
               Password
             </label>
             <input
-              type="text"
+              type="password"
               className="border border-[#E5E5E5] rounded-md mb-5 text-xs p-3"
               placeholder="Enter your password"
               name="password"
