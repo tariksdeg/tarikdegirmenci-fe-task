@@ -10,6 +10,23 @@ const Students = () => {
   const toast = useToast();
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setpostsPerPage] = useState(6);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
+  const pages = Math.ceil(users?.length / postsPerPage);
+
+  const rightPagination = () => {
+    if (currentPage < pages) {
+      setCurrentPage(currentPage + 1);
+    } else setCurrentPage(currentPage);
+  };
+  const leftPagination = () => {
+    if (currentPage === 1) {
+      setCurrentPage(currentPage);
+    } else if (currentPage <= pages) setCurrentPage(currentPage - 1);
+  };
 
   const updateUser = (item) => {
     Cookies.set("firstName", item.firstName);
@@ -118,7 +135,7 @@ const Students = () => {
         </div>
       )}
       {!isLoading &&
-        users?.map((item) => {
+        users?.slice(firstPostIndex, lastPostIndex).map((item) => {
           return (
             <div
               key={item?.id}
@@ -156,16 +173,16 @@ const Students = () => {
           );
         })}
       {!isLoading && users?.length > 0 && (
-        <div className="flex mt-5 items-center pb-10">
-          <div className="w-[72%]"></div>
+        <div className="flex justify-between mt-5 items-center pb-10">
+          <div className="w-[65%]"></div>
           <div className="flex">
             <p className="text-sm text-[#9FA2B4]">Rows per page:</p>
             <select
               name="quantity"
               id="quantity"
               className=" rounded-lg px-1 text-sm text-[#4B506D]  bg-[#F8F8F8] "
-              // value={item.amount}
-              defaultValue="6"
+              defaultValue={postsPerPage}
+              onChange={(e) => setpostsPerPage(e.target.value)}
             >
               {values.map((value) => {
                 return (
@@ -180,10 +197,24 @@ const Students = () => {
               })}
             </select>
           </div>
-          <div className="mx-5 text-[#9FA2B4] text-sm ">1-5 of 1240</div>
+          <div className="mx-5 text-[#9FA2B4] text-sm ">
+            {firstPostIndex + 1}-
+            {lastPostIndex <= users?.length ? lastPostIndex : users?.length} of{" "}
+            {users?.length}
+          </div>
           <div className="flex">
-            <img className="cursor-pointer" src="/left.svg" alt="left" />
-            <img className="cursor-pointer" src="/right.svg" alt="right" />
+            <img
+              onClick={leftPagination}
+              className="cursor-pointer"
+              src="/left.svg"
+              alt="left"
+            />
+            <img
+              onClick={rightPagination}
+              className="cursor-pointer mx-2"
+              src="/right.svg"
+              alt="right"
+            />
           </div>
         </div>
       )}
