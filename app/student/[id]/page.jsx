@@ -29,7 +29,6 @@ const UserUpdate = ({ params }) => {
       Cookies.remove("password");
       Cookies.remove("phone");
       Cookies.remove("domain");
-      console.log(`xxxres ==>`, result);
       toast({
         title: "Update Successful!",
         position: "top",

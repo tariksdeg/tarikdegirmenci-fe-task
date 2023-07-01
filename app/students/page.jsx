@@ -22,6 +22,7 @@ const Students = () => {
   const paramsSearch = params.get("search");
   const paramsSize = params.get("size");
   const paramsPage = params.get("page");
+
   const rightPagination = () => {
     if (currentPage < pages) {
       setCurrentPage(currentPage + 1);
@@ -44,7 +45,9 @@ const Students = () => {
       setCurrentPage(currentPage - 1);
     }
   };
-
+  if (currentPage < 1) {
+    setCurrentPage(1);
+  }
   const updateUser = (item) => {
     Cookies.set("firstName", item.firstName);
     Cookies.set("lastName", item.lastName);
@@ -52,7 +55,7 @@ const Students = () => {
     Cookies.set("password", item.password);
     Cookies.set("phone", item.phone);
     Cookies.set("domain", item.domain);
-    router.push(`/users/${item.id}`);
+    router.push(`/student/${item.id}`);
   };
 
   const searchFunc = async (e) => {
@@ -104,7 +107,6 @@ const Students = () => {
   const deleteUser = async (id) => {
     try {
       let result = await axios.delete(`https://dummyjson.com/users/${id}`);
-      console.log(`xxxres ==>`, result);
       toast({
         title: `${result.data.firstName} ${result.data.lastName} was deleted, ${result.data.deletedOn}`,
         position: "top",
@@ -143,7 +145,7 @@ const Students = () => {
             />
           </div>
           <div
-            onClick={() => router.push("/users/add")}
+            onClick={() => router.push("/student/add")}
             className="bg-[#FEAF00] text-white text-sm font-medium flex items-center justify-center rounded-[4px] py-3 px-8 cursor-pointer"
           >
             ADD NEW STUDENT
@@ -221,7 +223,15 @@ const Students = () => {
               id="quantity"
               className=" rounded-lg px-1 text-sm text-[#4B506D]  bg-[#F8F8F8] "
               defaultValue={postsPerPage}
-              onChange={(e) => setpostsPerPage(e.target.value)}
+              onChange={(e) => {
+                if (e.target.value * currentPage > users?.length) {
+                  setCurrentPage(1);
+                  setpostsPerPage(e.target.value);
+                  router.replace(
+                    `/students?page=${1}&size=${paramsSize}&search=${paramsSearch}`
+                  );
+                } else setpostsPerPage(e.target.value);
+              }}
             >
               {values.map((value) => {
                 return (
