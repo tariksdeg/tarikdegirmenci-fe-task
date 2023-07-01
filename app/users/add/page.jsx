@@ -72,7 +72,7 @@ const UserAdd = () => {
         <div className="mt-10 flex flex-col items-center">
           <div className="text-[22px] font-semibold leading-6">SAVE</div>
           <div className="text-sm text-[#6C6C6C] mt-2">
-            Enter your information
+            Enter user information
           </div>
         </div>
         <div className="mt-5">

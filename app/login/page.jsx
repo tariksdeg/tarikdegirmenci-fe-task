@@ -33,6 +33,7 @@ const Login = () => {
               className="border border-[#E5E5E5] rounded-md mb-5 text-xs p-3 "
               placeholder="Enter your email"
               name="email"
+              required
             />
             <label
               htmlFor="password"
@@ -45,6 +46,7 @@ const Login = () => {
               className="border border-[#E5E5E5] rounded-md mb-5 text-xs p-3"
               placeholder="Enter your password"
               name="password"
+              required
             />
             <input
               type="submit"

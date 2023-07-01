@@ -21,11 +21,24 @@ const Students = () => {
     router.push(`/users/${item.id}`);
   };
 
+  const searchFunc = async (e) => {
+    setLoading(true);
+    try {
+      let result = await axios.get(
+        `https://dummyjson.com/users/search?q=${e.target.value}`
+      );
+      setUsers(result.data.users);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
   const getUsers = async () => {
     setLoading(true);
     try {
       let result = await axios.get("https://dummyjson.com/users");
-      console.log(`xxxres ==>`, result.data.users);
       setUsers(result.data.users);
       setLoading(false);
     } catch (error) {
@@ -61,6 +74,7 @@ const Students = () => {
         <div className="flex items-center justify-center">
           <div className="relative mr-5">
             <input
+              onChange={searchFunc}
               className="border border-[#E5E5E5] px-4 py-2 rounded-lg outline-none placeholder:text-sm placeholder:font-normal text-sm font-semibold"
               type="text"
               placeholder="Search...."
@@ -141,7 +155,7 @@ const Students = () => {
             </div>
           );
         })}
-      {!isLoading && (
+      {!isLoading && users?.length > 0 && (
         <div className="flex mt-5 items-center pb-10">
           <div className="w-[72%]"></div>
           <div className="flex">
