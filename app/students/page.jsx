@@ -1,31 +1,48 @@
 "use client";
 import { Image, Spinner, useToast } from "@chakra-ui/react";
 import axios from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
 const Students = () => {
+  const params = useSearchParams();
+  // const params = useParams();
   const [users, setUsers] = useState();
   const toast = useToast();
   const router = useRouter();
   const [isLoading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setpostsPerPage] = useState(6);
-
+  const [searchQuery, setsearchQuery] = useState("");
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
   const pages = Math.ceil(users?.length / postsPerPage);
 
+  const paramsSearch = params.get("search");
+  const paramsSize = params.get("size");
+  const paramsPage = params.get("page");
   const rightPagination = () => {
     if (currentPage < pages) {
       setCurrentPage(currentPage + 1);
+      router.replace(
+        `/students?page=${
+          currentPage + 1
+        }&size=${paramsSize}&search=${paramsSearch}`
+      );
     } else setCurrentPage(currentPage);
   };
   const leftPagination = () => {
     if (currentPage === 1) {
       setCurrentPage(currentPage);
-    } else if (currentPage <= pages) setCurrentPage(currentPage - 1);
+    } else if (currentPage <= pages) {
+      router.replace(
+        `/students?page=${
+          currentPage - 1
+        }&size=${paramsSize}&search=${paramsSearch}`
+      );
+      setCurrentPage(currentPage - 1);
+    }
   };
 
   const updateUser = (item) => {
@@ -39,6 +56,7 @@ const Students = () => {
   };
 
   const searchFunc = async (e) => {
+    setsearchQuery(e.target.value);
     setLoading(true);
     try {
       let result = await axios.get(
@@ -46,6 +64,22 @@ const Students = () => {
       );
       setUsers(result.data.users);
       setLoading(false);
+      router.replace(
+        `/students?page=${currentPage}&size=${
+          result.data.users.length || "0"
+        }&search=${e.target.value}`
+      );
+      if (
+        currentPage &&
+        currentPage > Math.ceil(result.data.users.length / postsPerPage)
+      ) {
+        router.replace(
+          `/students?page=${Math.ceil(
+            result.data.users.length / postsPerPage
+          )}&size=${result.data.users.length || "0"}&search=${e.target.value}`
+        );
+        setCurrentPage(Math.ceil(result.data.users.length / postsPerPage));
+      }
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -58,6 +92,9 @@ const Students = () => {
       let result = await axios.get("https://dummyjson.com/users");
       setUsers(result.data.users);
       setLoading(false);
+      router.replace(
+        `/students?page=${currentPage}&size=${result.data.users.length}&search=${searchQuery}`
+      );
     } catch (error) {
       console.log(error);
       setLoading(false);
@@ -67,8 +104,9 @@ const Students = () => {
   const deleteUser = async (id) => {
     try {
       let result = await axios.delete(`https://dummyjson.com/users/${id}`);
+      console.log(`xxxres ==>`, result);
       toast({
-        title: `User was deleted, ${result.data.deletedOn}`,
+        title: `${result.data.firstName} ${result.data.lastName} was deleted, ${result.data.deletedOn}`,
         position: "top",
         status: "warning",
         isClosable: true,
@@ -135,6 +173,7 @@ const Students = () => {
         </div>
       )}
       {!isLoading &&
+        users?.length > 0 &&
         users?.slice(firstPostIndex, lastPostIndex).map((item) => {
           return (
             <div

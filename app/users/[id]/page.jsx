@@ -29,6 +29,7 @@ const UserUpdate = ({ params }) => {
       Cookies.remove("password");
       Cookies.remove("phone");
       Cookies.remove("domain");
+      console.log(`xxxres ==>`, result);
       toast({
         title: "Update Successful!",
         position: "top",
@@ -78,13 +79,13 @@ const UserUpdate = ({ params }) => {
       <div className=" flex flex-col justify-between  container rounded-lg bg-white my-8 w-2/4  py-7 px-5">
         <div className="flex items-center justify-center">
           <div className="text-3xl font-bold border-l-[6px] border-[#F8D442] px-2 leading-10">
-            UPDATE USER
+            UPDATE STUDENT
           </div>
         </div>
         <div className="mt-10 flex flex-col items-center">
           <div className="text-[22px] font-semibold leading-6">UPDATE</div>
           <div className="text-sm text-[#6C6C6C] mt-2">
-            Enter your information
+            Enter student information
           </div>
         </div>
         <div className="mt-5">
@@ -223,7 +224,7 @@ const UserUpdate = ({ params }) => {
             />
             <input
               type="submit"
-              value="UPDATE USER"
+              value="UPDATE STUDENT"
               className="w-full bg-[#FEAF00] text-white py-3 rounded-md hover:bg-[#e79f02] cursor-pointer"
             />
           </form>
