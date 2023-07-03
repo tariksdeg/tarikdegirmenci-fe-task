@@ -1,5 +1,5 @@
 "use client";
-import { Image, Spinner, useToast } from "@chakra-ui/react";
+import { Image, Spinner, Tooltip, useToast } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -227,18 +227,22 @@ const Students = () => {
               <p className="w-[12%]">{item?.domain}</p>
               <p className="w-[12%]">{item?.company.name}</p>
               <div className="w-[12%] flex justify-end">
-                <img
-                  onClick={() => updateUser(item)}
-                  className="cursor-pointer "
-                  src="/pen.svg"
-                  alt="pen"
-                />
-                <img
-                  onClick={() => deleteUser(item?.id)}
-                  className="cursor-pointer ml-10"
-                  src="/trash.svg"
-                  alt="trash"
-                />
+                <Tooltip label="Update Student" aria-label="A tooltip">
+                  <img
+                    onClick={() => updateUser(item)}
+                    className="cursor-pointer "
+                    src="/pen.svg"
+                    alt="pen"
+                  />
+                </Tooltip>
+                <Tooltip label="Delete Student" aria-label="A tooltip">
+                  <img
+                    onClick={() => deleteUser(item?.id)}
+                    className="cursor-pointer ml-10"
+                    src="/trash.svg"
+                    alt="trash"
+                  />
+                </Tooltip>
               </div>
             </div>
           );
