@@ -27,7 +27,7 @@ const Main = () => {
       </div>
       <div className="bg-gradient-to-r from-[#FEAF00] to-[#F8D442] mt-5 lg:mt-0  lg:w-[24%] w-1/2 h-1/5 rounded-lg ">
         <img src="users.svg" alt="graduation" className="my-3 mx-4" />
-        <p className="text-[#6C6C6C] font-medium text-sm mx-4 ">Users</p>
+        <p className="text-white font-medium text-sm mx-4 ">Users</p>
         <p className="font-bold text-3xl my-3 flex justify-end mr-3 pb-2 ">3</p>
       </div>
     </div>

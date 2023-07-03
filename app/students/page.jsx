@@ -7,7 +7,6 @@ import Cookies from "js-cookie";
 
 const Students = () => {
   const params = useSearchParams();
-  // const params = useParams();
   const [users, setUsers] = useState();
   const toast = useToast();
   const router = useRouter();
@@ -91,16 +90,46 @@ const Students = () => {
 
   const getUsers = async () => {
     setLoading(true);
-    try {
-      let result = await axios.get("https://dummyjson.com/users");
-      setUsers(result.data.users);
-      setLoading(false);
-      router.replace(
-        `/students?page=${currentPage}&size=${result.data.users.length}&search=${searchQuery}`
-      );
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
+    if (paramsSearch && paramsPage) {
+      try {
+        setCurrentPage(paramsPage);
+        let result = await axios.get(
+          `https://dummyjson.com/users/search?q=${paramsSearch}`
+        );
+        setUsers(result.data.users);
+        setLoading(false);
+        router.replace(
+          `/students?page=${paramsPage}&size=${
+            result.data.users.length || "0"
+          }&search=${paramsSearch}`
+        );
+        if (
+          currentPage &&
+          currentPage > Math.ceil(result.data.users.length / postsPerPage)
+        ) {
+          router.replace(
+            `/students?page=${Math.ceil(
+              result.data.users.length / postsPerPage
+            )}&size=${result.data.users.length || "0"}&search=${paramsSearch}`
+          );
+          setCurrentPage(Math.ceil(result.data.users.length / postsPerPage));
+        }
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
+    } else {
+      try {
+        let result = await axios.get("https://dummyjson.com/users");
+        setUsers(result.data.users);
+        setLoading(false);
+        router.replace(
+          `/students?page=${currentPage}&size=${result.data.users.length}&search=${searchQuery}`
+        );
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
     }
   };
 
@@ -137,6 +166,7 @@ const Students = () => {
               placeholder="Search...."
               name=""
               id=""
+              defaultValue={paramsSearch || ""}
             />
             <img
               className="absolute right-3 top-3"
