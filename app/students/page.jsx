@@ -176,7 +176,7 @@ const Students = () => {
           </div>
           <div
             onClick={() => router.push("/student/add")}
-            className="bg-[#FEAF00] text-white text-sm font-medium flex items-center justify-center rounded-[4px] py-3 px-8 cursor-pointer"
+            className="bg-[#FEAF00] hover:bg-[#e79f02] text-white text-sm font-medium flex items-center justify-center rounded-[4px] py-3 px-8 cursor-pointer"
           >
             ADD NEW STUDENT
           </div>
