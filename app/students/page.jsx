@@ -245,7 +245,7 @@ const Students = () => {
         })}
       {!isLoading && users?.length > 0 && (
         <div className="flex justify-between mt-5 items-center pb-10">
-          <div className="w-[65%]"></div>
+          <div className="w-[55%] lg:w-[65%]"></div>
           <div className="flex">
             <p className="text-sm text-[#9FA2B4]">Rows per page:</p>
             <select
@@ -276,7 +276,7 @@ const Students = () => {
               })}
             </select>
           </div>
-          <div className="mx-5 text-[#9FA2B4] text-sm ">
+          <div className="lg:mx-5 text-[#9FA2B4] text-sm ">
             {firstPostIndex + 1}-
             {lastPostIndex <= users?.length ? lastPostIndex : users?.length} of{" "}
             {users?.length}

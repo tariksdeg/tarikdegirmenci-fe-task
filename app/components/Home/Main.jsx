@@ -3,7 +3,7 @@ import React from "react";
 
 const Main = () => {
   return (
-    <div className=" flex flex-col items-center lg:items-start lg:flex-row min-h-screen bg-white  lg:w-full pl-14 pr-10 ">
+    <div className=" flex flex-col lg:flex-row items-center lg:items-start  min-h-screen bg-white  lg:w-full pl-14 pr-10 ">
       <div className="bg-[#F0F9FF] lg:w-[24%] w-1/2  h-1/5 rounded-lg lg:mr-10 ">
         <img src="graduation.svg" alt="graduation" className="my-3 mx-4" />
         <p className="text-[#6C6C6C] font-medium text-sm mx-4 ">Students</p>

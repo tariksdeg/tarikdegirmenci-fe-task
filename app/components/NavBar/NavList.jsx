@@ -50,19 +50,19 @@ const NavList = () => {
     },
   ];
   return (
-    <div>
+    <div className="lg:mt-0 mt-2  lg:ml-0 ml-5">
       {list.map((item) => {
         return (
           <Link href={item.link} key={item.id}>
             <div
               className={
                 item.selected
-                  ? "bg-[#FEAF00] flex py-2 px-10 rounded-[4px] mb-5 "
-                  : "bg-[#F2EAE1] flex py-2 px-10 rounded-[4px] mb-5"
+                  ? "bg-[#FEAF00] flex py-1 px-5 lg:py-2 lg:px-10 rounded-[4px] lg:mb-5 my-3 lg:my-0 "
+                  : "bg-[#F2EAE1] flex py-1 px-5 lg:py-2 lg:px-10 rounded-[4px] lg:mb-5 my-3 lg:my-0"
               }
             >
               <img className="w-5 h-5" src={item.img} alt="" />
-              <p className="ml-4 text-sm font-medium flex items-center justify-center">
+              <p className="lg:ml-4 ml-2 text-sm font-medium flex items-center justify-center">
                 {item.name}
               </p>
             </div>

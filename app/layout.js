@@ -25,8 +25,8 @@ export default function RootLayout({ children, params }) {
               <main>
                 {cookieStore.get("login") ? (
                   <Suspense fallback={<Loading />}>
-                    <div className="flex min-h-screen ">
-                      <div className="w-[22%] ">
+                    <div className="flex lg:flex-row flex-col min-h-screen ">
+                      <div className="lg:w-[22%] ">
                         <Navbar />
                       </div>
                       <div className="w-full bg-white">

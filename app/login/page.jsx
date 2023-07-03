@@ -8,7 +8,7 @@ const Login = () => {
 
   return (
     <div className="bg-gradient-to-r from-[#FEAF00] to-[#F8D442] w-full min-h-screen">
-      <div className=" flex flex-col justify-between  container rounded-lg bg-white my-44 w-1/4  py-7 px-5">
+      <div className=" flex flex-col justify-between  container rounded-lg bg-white my-44 w-1/3 lg:w-1/4  py-7 px-5">
         <div className="flex items-center justify-center">
           <div className="text-3xl font-bold border-l-[6px] border-[#F8D442] px-2 leading-10">
             MANAGE COURSES
