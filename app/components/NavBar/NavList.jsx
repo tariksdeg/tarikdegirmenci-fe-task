@@ -58,7 +58,7 @@ const NavList = () => {
               className={
                 item.selected
                   ? "bg-[#FEAF00] flex py-1 px-5 lg:py-2 lg:px-10 rounded-[4px] lg:mb-5 my-3 lg:my-0 "
-                  : "bg-[#F2EAE1] flex py-1 px-5 lg:py-2 lg:px-10 rounded-[4px] lg:mb-5 my-3 lg:my-0"
+                  : "bg-[#F2EAE1] hover:bg-[#ebdbc8] flex py-1 px-5 lg:py-2 lg:px-10 rounded-[4px] lg:mb-5 my-3 lg:my-0"
               }
             >
               <img className="w-5 h-5" src={item.img} alt="" />
