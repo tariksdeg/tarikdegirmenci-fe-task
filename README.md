@@ -2,7 +2,7 @@
 🌐 Front-End Task for SikayetVar
 </h1>
 <p align="center">
-React, Nextjs
+React, Next js 13
 </p>
 
 ## Clone or Download
@@ -55,7 +55,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Live Link in Vercel
 
-- ([Live Link](https://tarikdegirmenci-fe-task.vercel.app/))
+- [Live Link (https://tarikdegirmenci-fe-task.vercel.app/)](https://tarikdegirmenci-fe-task.vercel.app/)
 
 ### Technologies
 
