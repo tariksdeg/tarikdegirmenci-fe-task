@@ -11,9 +11,6 @@ const Navbar = () => {
           <div className="text-xl font-bold border-l-[4px] border-[#F8D442] px-2 lg:ml-0 sm:ml-7">
             MANAGE COURSES
           </div>
-          {/* <div className="lg:hidden mt-5">
-            <Profile />
-          </div> */}
         </div>
         <div className=" mt-5 lg:mt-12">
           <Profile />
@@ -26,7 +23,7 @@ const Navbar = () => {
             Cookies.remove("login");
             window.location.reload();
           }}
-          className="lg:ml-0 ml-5 lg:mt-28 lg:mr-0 mr-7 flex items-center justify-center cursor-pointer"
+          className="lg:ml-0 ml-5 lg:mt-28 lg:mr-0 mr-7 flex hover:bg-[#ebdbc8] py-1 px-5 lg:py-2 lg:px-10 rounded-[4px] items-center justify-center cursor-pointer"
         >
           <p className=" text-sm font-medium ">Logout</p>
           <img className="w-4 h-4 ml-5 " src="/logout.svg" alt="" />
