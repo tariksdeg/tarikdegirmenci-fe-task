@@ -1,34 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+🌐 Front-End Task for SikayetVar
+</h1>
+<p align="center">
+React, Nextjs
+</p>
+
+## clone or download
+
+```terminal
+$ git clone https://github.com/tariksdeg/tarikdegirmenci-fe-task.git
+$ yarn # or npm i
+```
+
+## Prerequisites
+
+- [Node](https://nodejs.org/en/download/) ^18.12.1
+- [npm](https://nodejs.org/en/download/package-manager/)
+
+# Dependencies
+
+    "@chakra-ui/next-js": "^2.1.4",
+    "@chakra-ui/react": "^2.7.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "autoprefixer": "10.4.14",
+    "axios": "^1.4.0",
+    "eslint": "8.43.0",
+    "eslint-config-next": "13.4.7",
+    "formik": "^2.4.2",
+    "framer-motion": "^10.12.17",
+    "js-cookie": "^3.0.5",
+    "next": "13.4.7",
+    "postcss": "8.4.24",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-intl": "^6.4.4",
+    "tailwindcss": "3.3.2",
+    "yup": "^1.2.0"
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
+npm i // npm install packages
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Technologies
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- NextJS 13(app directory) ([NextJS Document](https://beta.nextjs.org/docs/app-directory-roadmap))
+- TailwindCSS ([TailwindCSS Document](https://tailwindcss.com/))
+- Chakra UI ([ChakraUI Document](https://chakra-ui.com/))
+- Prettier
 
-## Learn More
+### Notes
 
-To learn more about Next.js, take a look at the following resources:
+1. This project was made according to 1440x900 screen resolution in ([Figma](https://www.figma.com/file/1CnH2tuVcRcY12SjY1pGUD/Manage-Students?type=design&node-id=0-1&mode=design&t=XTPt1BtrBjhNSaMU-0/))
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## to Reach Me
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Email Me: tariksdegirmencii@gmail.com (welcome, say hi)
