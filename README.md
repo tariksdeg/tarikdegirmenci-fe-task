@@ -5,12 +5,14 @@
 React, Nextjs
 </p>
 
-## clone or download
+## Clone or Download
 
 ```terminal
 $ git clone https://github.com/tariksdeg/tarikdegirmenci-fe-task.git
 $ yarn # or npm i
 ```
+
+- [GitHub](https://github.com/tariksdeg/tarikdegirmenci-fe-task)
 
 ## Prerequisites
 
@@ -50,6 +52,10 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Live Link in Vercel
+
+- ([Live Link](https://tarikdegirmenci-fe-task.vercel.app/))
 
 ### Technologies
 
