@@ -24,10 +24,10 @@ const Students = () => {
 
   const rightPagination = () => {
     if (currentPage < pages) {
-      setCurrentPage(currentPage + 1);
+      setCurrentPage(Number(currentPage) + 1);
       router.replace(
         `/students?page=${
-          currentPage + 1
+          Number(currentPage) + 1
         }&size=${paramsSize}&search=${paramsSearch}`
       );
     } else setCurrentPage(currentPage);
@@ -38,10 +38,10 @@ const Students = () => {
     } else if (currentPage <= pages) {
       router.replace(
         `/students?page=${
-          currentPage - 1
+          Number(currentPage) - 1
         }&size=${paramsSize}&search=${paramsSearch}`
       );
-      setCurrentPage(currentPage - 1);
+      setCurrentPage(Number(currentPage) - 1);
     }
   };
   if (currentPage < 1) {
