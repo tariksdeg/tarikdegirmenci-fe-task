@@ -29,7 +29,7 @@ export default function RootLayout({ children, params }) {
                       <div className="w-[22%] ">
                         <Navbar />
                       </div>
-                      <div className="lg:w-full bg-white">
+                      <div className="w-full bg-white">
                         <div>
                           <Header />
                         </div>
