@@ -1,8 +1,8 @@
 <h1 align="center">
-🌐 Front-End Task for SikayetVar
+🌐 Tarık Sefa Değirmenci
 </h1>
 <p align="center">
-React, Next js 13
+React, Next.js
 </p>
 
 ## Clone or Download
